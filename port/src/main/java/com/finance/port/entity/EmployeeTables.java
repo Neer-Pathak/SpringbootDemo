@@ -12,6 +12,8 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 @Entity
 @Data
 public class EmployeeTables {
@@ -29,6 +31,9 @@ public class EmployeeTables {
         joinColumns = @JoinColumn(name = "employeeTables_id"),
         inverseJoinColumns = @JoinColumn(name = "project_id"))
 	    private Set<Projects> assignedProjects = new HashSet<>();
+
+
+	
 	
 	
 	

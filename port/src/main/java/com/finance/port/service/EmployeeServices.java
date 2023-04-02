@@ -1,6 +1,7 @@
 package com.finance.port.service;
 
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.finance.port.entity.EmployeeTables;
 import com.finance.port.entity.Projects;
 import com.finance.port.repository.EmployeeRepository;
+import com.finance.port.repository.ProjectRepository;
 
 @Service
 public class EmployeeServices {
@@ -16,6 +18,10 @@ public class EmployeeServices {
 
 	    @Autowired
 	    private EmployeeRepository employeeRepository;
+	    
+	    
+	    @Autowired
+	    private ProjectRepository projectRepository;
 
 //	    public void saveProject(Projects projectObj) {
 //	        projectRepository.save(projectObj);
@@ -50,8 +56,16 @@ public class EmployeeServices {
 	    }
 	
 	
-	
-	
+	    
+	    public EmployeeTables assignProjectToEmployee(Long empId, Long projectId) {
+	        Set<Projects> projectSet = null;
+	        EmployeeTables employee = employeeRepository.findById(empId).get();
+	        Projects project = projectRepository.findById(projectId).get();
+	        projectSet =  employee.getAssignedProjects();
+	        projectSet.add(project);
+	        employee.setAssignedProjects(projectSet);
+	        return employeeRepository.save(employee);
+	    }
 	
 	
 	

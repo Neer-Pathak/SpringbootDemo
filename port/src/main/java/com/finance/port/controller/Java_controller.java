@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -53,5 +54,12 @@ public class Java_controller {
         return employeeService.getEmployeeDetails(null);
     }
 
+    @PutMapping("/{empId}/project/{projectId}")
+    public EmployeeTables assignProjectToEmployee(
+            @PathVariable Long empId,
+            @PathVariable Long projectId
+    ){
+        return employeeService.assignProjectToEmployee(empId, projectId);
+    }
   
 }
