@@ -43,7 +43,14 @@ public class Java_controller {
     @DeleteMapping("delete/{empId}")
     public List<EmployeeTables> removeEmployee(@PathVariable Long empId){
         employeeService.deleteEmployee(empId);
-        return employeeService.getEmployeeDetails(empId);
+        return employeeService.getEmployeeDetails(null);
+    }
+    
+    
+    @DeleteMapping("delete/all")
+    public List<EmployeeTables> remove_all_Employee(){
+        employeeService.deleteEmployee_all();
+        return employeeService.getEmployeeDetails(null);
     }
 
   

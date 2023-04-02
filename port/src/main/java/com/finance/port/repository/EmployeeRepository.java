@@ -11,7 +11,7 @@ import com.finance.port.entity.EmployeeTables;
 public interface EmployeeRepository extends JpaRepository<EmployeeTables, Long>{
 
 	
-	List<EmployeeTables> findAllByEmpId(long projectId);
+	List<EmployeeTables> findAllByEmpId(long empID);
 	
 	
 	

@@ -34,8 +34,12 @@ public class EmployeeServices {
 			return "Hello";
 		}
 
-	    public void deleteEmployee(Long projectId) {
-	    	employeeRepository.deleteById(projectId);
+	    public void deleteEmployee(Long empID) {
+	    	employeeRepository.deleteById(empID);
+	    }
+	    
+	    public void deleteEmployee_all() {
+	    	employeeRepository.deleteAll();
 	    }
 	
 	
